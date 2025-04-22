@@ -1,0 +1,19 @@
+[project]
+name = "mini-zk"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "cyclopts (>=3.13.1,<4.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "mini_zk", from = "src"}]
+
+[tool.poetry.scripts]
+mini-zk = "mini_zk.__main__:main"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
