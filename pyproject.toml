@@ -5,7 +5,7 @@ description = ""
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "cyclopts (>=3.13.1,<4.0.0)"
+    "cyclopts (>=3.13.1,<4.0.0)",
 ]
 
 [tool.poetry]
