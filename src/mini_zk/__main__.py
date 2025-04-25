@@ -81,6 +81,15 @@ def new(
     note_utils.create_note(title, content, dir, editor)
 
 
+@app.command
+def open():
+    """
+    Opens zettelkasten using directory set in ZK_ROOT in config file. Editor of choice has to support opening directories. Neovim recommended.
+    """
+    dir = _default_zk_root
+    note_utils.open_in_editor(dir)
+
+
 def main():
     app()
 
