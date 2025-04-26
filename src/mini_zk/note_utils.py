@@ -24,7 +24,14 @@ def create_note(title: str, content: str, dir: Path, editor: bool, frontmatter: 
 
 def open_in_editor(path: Path):
     try:
-        subprocess.run([config.EDITOR, str(path)], check=True)
+        # Change current working directory when opening in Neovim so notes are easily searchable.
+        if config.EDITOR == "nvim":
+            subprocess.run(
+                [config.EDITOR, "--cmd", f"cd {config.ZK_ROOT}", str(path)],
+                check=True,
+            )
+        else:
+            subprocess.run([config.EDITOR, str(path)], check=True)
     except FileNotFoundError:
         messages.zk_warning(
             f"Editor [{config.EDITOR}] set in config not found and the note won't be opened. Make sure it is installed and in your PATH."
