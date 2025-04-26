@@ -1,17 +1,22 @@
 import subprocess
 import random
 import string
+import datetime
 
 from pathlib import Path
+from textwrap import dedent
 
 from mini_zk import config
 from mini_zk import messages
 
 
-def create_note(title: str, content: str, dir: Path, editor: bool):
+def create_note(title: str, content: str, dir: Path, editor: bool, frontmatter: bool):
     filename = format_filename(title)
     path = dir / filename
-    path.write_text(content)
+    with path.open("a") as note:
+        if frontmatter:
+            note.write(insert_frontmatter(title))
+        note.write(content)
     if editor:
         open_in_editor(path)
     messages.zk_info(f"Created note: {path}")
@@ -43,3 +48,16 @@ def format_filename(title: str) -> str:
         + ".md"
     )
     return filename
+
+
+def insert_frontmatter(title: str):
+    frontmatter = f"""\
+    ---
+    title: {title}
+    date: {datetime.date.today()}
+    tags:
+      -
+    ---
+
+    """
+    return dedent(frontmatter)

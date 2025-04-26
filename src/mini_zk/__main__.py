@@ -57,6 +57,7 @@ def new(
         ),
     ] = _default_zk_root,
     editor: bool = True,
+    frontmatter: bool = True,
 ):
     """
     Creates a new note with the provided title and drops into the editor for interactive editing.
@@ -70,6 +71,8 @@ def new(
         Directory which the note will be created in. Defaults to ZK_ROOT specified in config file.
     editor: bool
         Set to false to disable opening the editor after note creation.
+    frontmatter: bool
+        Set to false to disable frontmatter insertion at the top of the note.
     """
 
     # Support for piping content
@@ -78,7 +81,7 @@ def new(
     else:
         content = ""
 
-    note_utils.create_note(title, content, dir, editor)
+    note_utils.create_note(title, content, dir, editor, frontmatter)
 
 
 @app.command
