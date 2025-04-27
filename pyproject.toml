@@ -12,7 +12,7 @@ dependencies = [
 packages = [{include = "mini_zk", from = "src"}]
 
 [tool.poetry.scripts]
-mini-zk = "mini_zk.__main__:main"
+zk = "mini_zk.__main__:main"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

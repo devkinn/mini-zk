@@ -26,24 +26,36 @@ pipx install .
 
 Config is stored in `config.py` file. Current options include changing default directory for note creation and the default text editor.
 
+By default mini-zk uses directory set in `ZK_ROOT` environmental variable, but it will fall back to path set in config file if it is not set.
+
 ## Usage
+
+The tool can be executed under two names: `mini-zk` and `zk` which is just faster to type.
+
+### Commands
 
 Create a new note in default zettelkasten root specified in config file:
 
 ```bash
-mini-zk new "Title of this note"
+zk new "Title of this note"
 ```
 
 Specify directory for a note:
 
 ```bash
-mini-zk new --dir="~/notes/" "Title of this note"
+zk new --dir="~/notes/" "Title of this note"
 ```
 
-You can also **pipe**  content into new notes:
+Open the zettelkasten directory:
 
 ```bash
-echo "This is some random content" | mini-zk new "Title of this note"
+zk open
+```
+
+You can also **pipe** content into new notes:
+
+```bash
+echo "This is some random content" | zk new "Title of this note"
 ```
 
 For all available commands and options append `-h` flag when executing mini-zk.
@@ -51,11 +63,11 @@ For all available commands and options append `-h` flag when executing mini-zk.
 Check available commands:
 
 ```bash
-mini-zk -h
+zk -h
 ```
 
 Check available options for command `new`:
 
 ```bash
-mini-zk new -h
+zk new -h
 ```
