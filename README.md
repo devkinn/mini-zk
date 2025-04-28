@@ -40,11 +40,23 @@ Create a new note in default zettelkasten root specified in config file:
 zk new "Title of this note"
 ```
 
-Specify directory for a note:
+----------
+
+You can also create notes in a `ZK_ROOT/{subfolder}` path. Notes can be placed in subfolders to help with organization. Subfolders must be specified in SUBFOLDERS list in config file and mini-zk will create them automatically. If not specified notes are created in `ZK_ROOT`.
+
+For a `uni` (university) subfolder:
 
 ```bash
-zk new --dir="~/notes/" "Title of this note"
+zk new --subfolder=uni "Title of this note"
 ```
+
+Or as a positional argument:
+
+```bash
+zk new "Title of this note" uni
+```
+
+----------
 
 Open the zettelkasten directory:
 
@@ -52,11 +64,15 @@ Open the zettelkasten directory:
 zk open
 ```
 
+----------
+
 You can also **pipe** content into new notes:
 
 ```bash
 echo "This is some random content" | zk new "Title of this note"
 ```
+
+----------
 
 For all available commands and options append `-h` flag when executing mini-zk.
 

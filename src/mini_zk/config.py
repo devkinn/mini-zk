@@ -7,6 +7,9 @@ ZK_ROOT_ENV = "ZK_ROOT"
 # mini-zk will fallback to this path if ZK_ROOT_ENV is not set in the system.
 ZK_ROOT_PATH = "~/notes/"
 
+# Subfolders that are created under ZK_ROOT path. Can be used for seperating specific notes.
+SUBFOLDERS = ["uni", "personal"]
+
 # Max title length.
 MAX_TITLE_LENGTH = 40
 
